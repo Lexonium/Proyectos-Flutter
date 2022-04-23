@@ -1,0 +1,33 @@
+child: Card(
+        child: Column(
+          children: [
+            ListTile(
+              leading: IconButton(icon: Icon(Icons.add_shopping_cart_rounded), onPressed:() =>
+                        Navigator.pushNamed(context, 'creaord', arguments: ord)
+                            .then((value) => setState(() {})),),
+              title: Text('${ord.idOrden} - para : ${ord.nombreCliente}'),
+              subtitle: Text(
+                  '${ord.nombreProducto} x ${ord.cantidadproducto}, total: ${ord.total}'),
+                  trailing: IconButton(icon: Icon(Icons.assistant_navigation)),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.redAccent,
+                        padding: EdgeInsets.all(5.0)),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, 'creaord', arguments: ord)
+                            .then((value) => setState(() {})),
+                    child: Text('Modificar Orden')),
+                ElevatedButton(
+                    onPressed: () =>
+                        Navigator.pushNamed(context, 'mapa', arguments: ord)
+                            .then((value) => setState(() {})),
+                    child: Text('Mostrar Ruta'))
+              ],
+            )
+          ],
+        ),
+      ),
